@@ -69,6 +69,18 @@ public class BTraceUtils {
     // Thread and stack access
 
     /**
+     * show Object in a friend way
+     * @param obj
+     * @param deep
+     * @return
+     */
+    public static String drawObj(Object obj, int deep) {
+        String drawStr = new ObjectView(obj, deep).draw();
+
+        return drawStr;
+    }
+
+    /**
      * Tests whether this thread has been interrupted.  The <i>interrupted
      * status</i> of the thread is unaffected by this method.
      *

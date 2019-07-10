@@ -23,22 +23,23 @@
  * questions.
  */
 
-package traces.onmethod;
+package trace;
 
 import com.sun.btrace.AnyType;
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
 import com.sun.btrace.annotations.Self;
-import static com.sun.btrace.BTraceUtils.*;
+
+import static com.sun.btrace.BTraceUtils.drawObj;
+import static com.sun.btrace.BTraceUtils.println;
 
 /**
- *
  * @author Jaroslav Bachorik
  */
 @BTrace
 public class AnytypeArgs {
-    @OnMethod(clazz="/.*\\.OnMethodTest/", method="args")
+    @OnMethod(clazz = "/.*\\.OnMethodTest/", method = "args")
     public static void args(@Self Object self, AnyType[] args) {
-        println("args");
+        println(drawObj(args, 3));
     }
 }

@@ -241,9 +241,14 @@ public class Client {
         try {
             String agentPath = "/btrace-agent.jar";
             String tmp = Client.class.getClassLoader().getResource("com/sun/btrace").toString();
-            tmp = tmp.substring(0, tmp.indexOf('!'));
-            tmp = tmp.substring("jar:".length(), tmp.lastIndexOf('/'));
-            agentPath = tmp + agentPath;
+            try {
+                tmp = tmp.substring(0, tmp.indexOf('!'));
+                tmp = tmp.substring("jar:".length(), tmp.lastIndexOf('/'));
+                agentPath = tmp + agentPath;
+            } catch (Exception e) {
+                tmp = tmp.substring(0, tmp.indexOf("out"));
+                agentPath = tmp + "/build/" + agentPath;
+            }
             agentPath = new File(new URI(agentPath)).getAbsolutePath();
             attach(pid, agentPath, sysCp, bootCp);
         } catch (RuntimeException re) {
