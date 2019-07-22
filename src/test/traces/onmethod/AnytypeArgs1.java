@@ -37,8 +37,8 @@ import static com.sun.btrace.BTraceUtils.println;
  * @author Jaroslav Bachorik
  */
 @BTrace
-public class AnytypeArgs {
-    @OnMethod(clazz = "/.*\\.OnMethodTest/", method = "args")
+public class AnytypeArgs1 {
+    @OnMethod(clazz = "/.*\\.OnMethodTest1/", method = "args")
     public static void args(@Self Object self, AnyType[] args) {
         println(drawObj(args, 3));
         println(drawObj(self, 3));

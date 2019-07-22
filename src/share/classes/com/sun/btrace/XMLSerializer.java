@@ -34,7 +34,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
-import java.nio.charset.UnsupportedCharsetException;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.Map;
